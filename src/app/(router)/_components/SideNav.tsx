@@ -20,11 +20,19 @@ const SideNav = (props: Props) => {
         }
     ]
   return (
-    <div className="sm:w-64 hidden sm:block fixed">
+    <div className="bg-white p-5 shadow-sm border h-screen">
      {/* Menu list  */}
      {
         menus.map((item, index) =>(
-            <h2 key={item.id}>{item.name} {item.icon}</h2>
+            <div key={item.id} className="flex gap-3 mt-2 text-[16px] 
+                p-2 items-center text-grey-500 cursor-pointer
+                hover:bg-primary hover:text-white 
+                transition-all ease-out duration-300
+                rounded-md
+                ">
+               <item.icon/> 
+              <h2 > {item.name}</h2>
+             </div>
         ))
      }
     </div> 
