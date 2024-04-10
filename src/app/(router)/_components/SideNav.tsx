@@ -1,10 +1,8 @@
-import { BadgeIcon, BookOpen, GraduationCap } from 'lucide-react';
-import React from 'react'
-
-
+import { BadgeIcon, BookOpen, GraduationCap, MenuSquare } from 'lucide-react';
+import Link from 'next/link'
 
 const SideNav = (props: Props) => {
-    const menu = [
+    const menus = [
         {
             id: 1, 
             name: "All Courses", 
@@ -22,7 +20,14 @@ const SideNav = (props: Props) => {
         }
     ]
   return (
-    <div className="sm:w-64 hidden sm:block fixed">SideNav</div>
+    <div className="sm:w-64 hidden sm:block fixed">
+     {/* Menu list  */}
+     {
+        menus.map((item, index) =>(
+            <h2 key={item.id}>{item.name} {item.icon}</h2>
+        ))
+     }
+    </div> 
   )
 }
 
