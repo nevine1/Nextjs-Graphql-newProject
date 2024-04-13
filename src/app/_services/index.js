@@ -1,0 +1,1 @@
+const MASTER_URL = "https://api-ca-central-1.hygraph.com/v2/cluwi9h271dvu08watlqqenwh/master"

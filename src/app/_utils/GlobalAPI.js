@@ -1,0 +1,1 @@
+const MASTER_URL="https://api-ca-central-1.hygraph.com/v2/"+process.env.NEXT_PUBLIC_HYGRAPH_API_KEY+"/master"
