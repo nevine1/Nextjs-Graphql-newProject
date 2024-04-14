@@ -1,10 +1,7 @@
 import React from 'react'
 
-interface Props {
-    
-}
 
-export const WelcomeBanner = (props: Props) => {
+ const WelcomeBanner = () => {
     return (
         <div className="p-3">
            <h1 className="font-bold text-[40px]">Welcome to 
@@ -15,3 +12,4 @@ export const WelcomeBanner = (props: Props) => {
         </div>
     )
 }
+export default WelcomeBanner;

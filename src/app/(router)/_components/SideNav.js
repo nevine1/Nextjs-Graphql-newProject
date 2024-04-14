@@ -1,7 +1,7 @@
 import { BadgeIcon, BookOpen, GraduationCap, MenuSquare } from 'lucide-react';
 import Link from 'next/link'
 
-const SideNav = (props: Props) => {
+const SideNav = () => {
     const menus = [
         {
             id: 1, 
