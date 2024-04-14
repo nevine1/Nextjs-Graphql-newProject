@@ -1,6 +1,6 @@
 import { gql } from "graphql-request"
 
-const MASTER_URL="https://api-ca-central-1.hygraph.com/v2/"+process.env.NEXT_PUBLIC_HYGRAPH_API_KEY+"/master"
+const MASTER_URL="https://api-ca-central-1.hygraph.com/v2/"+process.env.MASTER_URL_KEY+"/master"
 
 const getAllCourseList = async () =>{
     const query = gql`
