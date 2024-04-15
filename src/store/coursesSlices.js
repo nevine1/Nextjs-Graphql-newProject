@@ -8,11 +8,11 @@ const coursesSlice = createSlice({
         error: null
     }, //
     reducers:{
-        setIsLoading:{state, paylaod} =>{
-            setIsLoading = true;
+        setIsLoading:{state} =>{
+            state.isLoading = true;
         }
     }
 })
 
-export const { } = coursesSlice.actions; 
+export const { setIsLoading } = coursesSlice.actions; 
 export default courseSlice.reducer; 
