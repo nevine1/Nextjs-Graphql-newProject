@@ -2,7 +2,7 @@ import { gql } from "graphql-request"
 
 const MASTER_URL="https://api-ca-central-1.hygraph.com/v2/"+process.env.MASTER_URL_KEY+"/master"
 
-const getAllCourseList = async () =>{
+/* const getAllCourseList = async () =>{ */
     const query = gql`
         query CourseLists {
             courseLists {
@@ -27,10 +27,10 @@ const getAllCourseList = async () =>{
         }
     `;
     
-    const result = await request(MASTER_URL, query);
-    return result; 
-}
+    /* const result = await request(MASTER_URL, query);
+    return result;  */
+/* } */
 
-export default {
+/* export default {
     getAllCourseList
-}
+} */
