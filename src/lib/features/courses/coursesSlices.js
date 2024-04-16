@@ -10,6 +10,9 @@ const coursesSlice = createSlice({
     reducers:{
         setIsLoading:{state} =>{
             state.isLoading = true;
+        }, 
+        fetchingCourses:(state, payload) =>{
+            state.courses = payload.cou
         }
     }
 })
