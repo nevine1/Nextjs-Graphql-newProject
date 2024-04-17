@@ -8,14 +8,16 @@ const coursesSlice = createSlice({
         error: null
     }, //
     reducers:{
-        setIsLoading:{state} =>{
+
+        setIsLoading:( state, payload ) => {
             state.isLoading = true;
         }, 
-        fetchingCourses:(state, payload) =>{
+
+        fetchingCourses:(state, payload) => {
             state.courses = payload.cou
         }
     }
 })
 
-export const { setIsLoading } = coursesSlice.actions; 
-export default courseSlice.reducer; 
+export const { setIsLoading, fetchingCourses } = coursesSlice.actions; 
+export default coursesSlice.reducer; 
