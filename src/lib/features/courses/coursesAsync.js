@@ -14,3 +14,6 @@ const fetchCourses = async (dispatch ) =>{
         dispatch(setIsLoading(false));
     }
 }
+
+
+

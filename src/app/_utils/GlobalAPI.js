@@ -1,9 +1,9 @@
-import { gql } from "graphql-request"
+import { request, gql , GraphQLClient} from "graphql-request"
 
-const MASTER_URL="https://api-ca-central-1.hygraph.com/v2/"+process.env.MASTER_URL_KEY+"/master"
-
-/* const getAllCourseList = async () =>{ */
-    const query = gql`
+export const master_graph = process.env.MASTER_URL;
+const graphQLClient = new GraphQLClient(master_graph)
+const getAllCourseList = async () =>{
+    const coursesQuery = gql`
         query CourseLists {
             courseLists {
                 author
@@ -27,9 +27,10 @@ const MASTER_URL="https://api-ca-central-1.hygraph.com/v2/"+process.env.MASTER_U
         }
     `;
     
-    /* const result = await request(MASTER_URL, query);
-    return result;  */
-/* } */
+   // const result = await request(MASTER_URL, query);
+    const result = await graphQLClient.request( query);
+    return result; 
+}
 
 /* export default {
     getAllCourseList
