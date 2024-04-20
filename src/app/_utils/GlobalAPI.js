@@ -1,7 +1,7 @@
 import { request, gql , GraphQLClient} from "graphql-request"
 
-export const master_graph = process.env.MASTER_URL;
-const graphQLClient = new GraphQLClient(master_graph)
+ const url = "https://api-ca-central-1.hygraph.com/v2/cluwi9h271dvu08watlqqenwh/master";
+/* const graphQLClient = new GraphQLClient(master_graph) */
 const getAllCourseList = async () =>{
     const coursesQuery = gql`
         query CourseLists {
@@ -22,16 +22,16 @@ const getAllCourseList = async () =>{
                 id
                 name
                 }
-                createdBy
+              
             }
         }
     `;
     
-   // const result = await request(MASTER_URL, query);
-    const result = await graphQLClient.request( query);
+   const result = await request(url, coursesQuery);
+   
     return result; 
 }
 
-/* export default {
+export default {
     getAllCourseList
-} */
+}
