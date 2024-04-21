@@ -28,10 +28,8 @@ const getAllCourseList = async () =>{
     `;
     
    const result = await request(url, coursesQuery);
-   
     return result; 
 }
-
 export default {
     getAllCourseList
 }

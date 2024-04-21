@@ -4,7 +4,7 @@ import  WelcomeBanner  from "../_components/WelcomeBanner"
 import CourseList from "../_components/CourseList"
 import { master_graph , coursesQuery} from './../../_utils/GlobalAPI'
 import { getAllCourseList } from './../../_utils/GlobalAPI'
-import  geAllCoursesList  from '../_components/CourseList'
+import  CoursesList  from '../_components/CourseList'
 export default function page () {
   const [courses, setCourses ] = useState([]);
 
