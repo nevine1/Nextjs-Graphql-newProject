@@ -7,10 +7,17 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
         return src;
       }
   return (
-    <div className="grid md:grid-cols-3 sm:grid-cols-2 ">
-        <Image src={course.bannerPicture.url}
-        loader={imageLoader}
-        width={500} height={400} alt={course.author} />
+    <div className="grid md:grid-cols-1 sm:grid-cols-1 p-4 bg-red-200 m-2 border-rounded">
+        
+          <Image src={course.bannerPicture.url}
+            loader={imageLoader}
+            width={900} height={600} alt={course.author}
+            className="border-t-xl  p-1 w-100"
+            />
+          <div >
+            <h3 className="font-medium ">{course.name.slice(0, 30)}</h3>
+            <p className="text-[14px] text-gray-400 p-1">{course.author}</p>
+          </div>
       
        
     </div>

@@ -54,8 +54,8 @@ console.log(`coursees lenght is ${courses.length}`)
     {/* display the courses list */} 
     <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-4">
       {courses?.length > 0 ? ( // Check if pages has data
-        courses.map((course) => (
-          <div key={course.index}>
+        courses.map((course, index) => (
+          <div key={index}>
             
             <CourseItem /* {...course} */ course={course} />
           </div>
