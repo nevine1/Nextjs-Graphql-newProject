@@ -17,13 +17,15 @@ export default function page () {
    
 
     return(
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div className="col-span-2">
+        <div className=" grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div className="col-span-3 ">
                 <WelcomeBanner/>
+                {/* courses list  */}
+                <CourseList/> 
             </div>
                 
             <div>
-              <CourseList/>  
+               <p>lorem10</p>
             </div>
             
 
