@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import  GlobalAPI  from '../../_utils/GlobalAPI'
-
+import CourseItem from './CourseItem'
 import {
   Select,
   SelectContent,
@@ -52,11 +52,12 @@ console.log(`coursees lenght is ${courses.length}`)
       </Select>
     </div>
     {/* display the courses list */} 
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-4">
       {courses?.length > 0 ? ( // Check if pages has data
         courses.map((course) => (
-          <div key={course.id}>
-            <h3 className="underline bg-red-200 m-2">{course.author}</h3>
+          <div key={course.index}>
+            
+            <CourseItem /* {...course} */ course={course} />
           </div>
         ))
       ) : (
