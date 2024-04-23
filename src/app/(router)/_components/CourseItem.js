@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
+import Img1 from '../../../../public/assets/imgs/youtube.png'
+import Img2 from '../../../../public/assets/imgs/chapter.png'
 const CourseItem = ({/* bannerPicture, title */ course }) => {
 
     const imageLoader = ({ src, width, quality }) => {
@@ -7,7 +9,10 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
         return src;
       }
   return (
-    <div className="grid md:grid-cols-1 sm:grid-cols-1 p-4 bg-red-200 m-2 border-rounded">
+    <div className="grid md:grid-cols-1 sm:grid-cols-1 p-4 bg-red-200 m-2 rounded-xl
+      hover:shadow-md hover:shadow-purple-300
+      cursor-pointer
+    ">
         
           <Image src={course.bannerPicture.url}
             loader={imageLoader}
@@ -18,6 +23,25 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
             <h3 className="font-medium ">{course.name.slice(0, 30)}</h3>
             <p className="text-[14px] text-gray-400 p-1">{course.author}</p>
           </div>
+          {course.totalParts?.length == 0 ? (
+              <div className=" flex gap-2">
+                <p className=" text-[15px] text-gray-400">Watch on </p>
+                <Image src={Img1} width={30} height={30} 
+                  alt="youtube image"
+                  className=""
+                  />
+              </div>
+            ): (
+              <div className=" flex gap-2">
+                <p className=" text-[15px] text-gray-400"> Watch all videos </p>
+                <Image src={Img2} width={30} height={30} 
+                  alt="youtube image"
+                  className=""
+                  />
+              </div>
+            )
+          }
+          <p className="text-[14px]">{course.free? "Free" : "Paid"}</p>
       
        
     </div>

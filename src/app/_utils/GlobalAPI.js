@@ -5,7 +5,7 @@ import { request, gql , GraphQLClient} from "graphql-request"
 const getAllCourseList = async () =>{
     const coursesQuery = gql`
         query CourseLists {
-            courseLists {
+            courseLists(first: 5, orderBy: name_ASC) {
                 author
                 createdAt
                 description
