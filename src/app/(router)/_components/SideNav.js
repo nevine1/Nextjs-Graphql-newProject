@@ -1,7 +1,10 @@
+
+import { useEffect } from 'react'
 import { BadgeIcon, BookOpen, GraduationCap, MenuSquare } from 'lucide-react';
 import Link from 'next/link'
-
+import { usePathname } from 'next/navigation';
 const SideNav = () => {
+    const path = usePathname();
     const menus = [
         {
             id: 1, 
@@ -22,6 +25,9 @@ const SideNav = () => {
             path:"/graduation"
         }
     ]
+    useEffect(() =>{
+        console.log(path);
+    }, [])
   return (
     <div className="bg-white p-5 shadow-sm border h-screen">
      {/* Menu list  */}
