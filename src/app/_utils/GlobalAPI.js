@@ -30,6 +30,30 @@ const getAllCourseList = async () =>{
    const result = await request(url, coursesQuery);
     return result; 
 }
-export default {
-    getAllCourseList
-}
+
+
+const getSideBanner = async () =>{
+    const sideBannerQuery = `
+        query SideBanner {
+            sideBanners {
+            name
+            id
+            url
+            banner {
+                url
+                id
+            }
+            }
+        }
+     `
+     const result = await request(url, sideBannerQuery);
+     return result;
+
+
+    }
+    export default {
+        getAllCourseList, 
+        sideBannerQuery
+    }
+
+  

@@ -26,7 +26,7 @@ const SideNav = () => {
         }
     ]
     useEffect(() =>{
-        console.log(path);
+        console.log(" path is `${path}` ");
     }, [])
   return (
     <div className="bg-white p-5 shadow-sm border h-screen">

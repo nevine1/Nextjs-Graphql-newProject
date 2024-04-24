@@ -9,9 +9,12 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
         return src;
       }
   return (
-    <div className="grid md:grid-cols-1 sm:grid-cols-1  bg-gray-200 m-2 rounded-xl
-      hover:shadow-md hover:shadow-purple-300
-      cursor-pointer ">
+    <div className="grid md:grid-cols-1 sm:grid-cols-1 
+      border-slate-400 width-full
+     bg-gray-100 m-2 rounded-xl
+       hover:shadow-md hover:shadow-purple-300
+       cursor-pointer 
+       ">
         
           <Image src={course.bannerPicture.url}
             loader={imageLoader}
