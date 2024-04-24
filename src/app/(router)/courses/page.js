@@ -5,7 +5,7 @@ import CourseList from "../_components/CourseList"
 import { master_graph , coursesQuery} from './../../_utils/GlobalAPI'
 import { getAllCourseList } from './../../_utils/GlobalAPI'
 import  CoursesList  from '../_components/CourseList'
-import SideBanner from "../_components/SideBanner"
+import SideBanner from "../_components/SideBanners"
 export default function page () {
   const [courses, setCourses ] = useState([]);
 
@@ -25,7 +25,7 @@ export default function page () {
                 <CourseList/> 
             </div>
                 
-            <div>
+            <div className="bg-white p-5 ">
                <SideBanner/>
             </div>
             

@@ -53,7 +53,7 @@ const getSideBanner = async () =>{
     }
     export default {
         getAllCourseList, 
-        sideBannerQuery
+        getSideBanner
     }
 
   
