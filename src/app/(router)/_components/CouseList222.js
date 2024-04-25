@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { COURSES_LIST , coursesQuery } from '../../_utils/queries';
+import { url2 } from '../../_utils/queries';
+import { coursesQuery } from '../../_utils/queries';
 import CourseItem from './CourseItem'
 
 import {
@@ -15,30 +16,50 @@ function CourseList() {
   const [courses, setCourses] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  
+  console.log(courses)
+
 
   const getAllMyCourses = async () => {
-
     try {
       
       setIsLoading(true);
-      
-      const requestBody = {
-        query: coursesQuery 
+      const headers = {
+        'content-type': 'application/json'
       };
-
+      const requestBody = {
+        query: coursesQuery /* `query CourseLists {
+          courseLists() {
+              author
+              createdAt
+              description
+              free
+              id
+              name
+              totalParts
+              uploadedDate
+              youtbueUrl
+              bannerPicture {
+              url
+              }
+              updatedBy {
+              id
+              name
+              }
+            
+          }
+      }` */
+      };
       const options = {
         method: 'POST',
-        headers:{'content-type': 'application/json'},
+        headers,
         body: JSON.stringify(requestBody)
       };
-
-      const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLISTS_ENDPOINT, options)).json();
+      const response = await (await fetch(url2, options)).json();
       //console.log('RESPONSE FROM FETCH REQUEST', response?.data);
       setCourses(response?.data?.courseLists)
     }
     catch (err) {
-      console.log(`ERROR DURING FETCH REQUEST`, err);
+      console.log('ERROR DURING FETCH REQUEST', err);
     }
     finally {
       setIsLoading(false);

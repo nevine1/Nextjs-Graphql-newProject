@@ -1,18 +1,34 @@
 import { useEffect,useState } from 'react'
-import GlobalAPI from '@/app/_utils/GlobalAPI'
+import { sideBannerQuery} from '@/app/_utils/queries'
 import Image from 'next/image'
+import { setIsLoading } from '@/lib/features/courses/coursesSlice'
+
 const SideBanners = () => {
 
-    const [sideBannerList, setSideBannerList ] = useState([])
-    const gettingSideBanners = async () =>{
-        GlobalAPI.getSideBanner().then((res) =>{
-            setSideBannerList(res?.sideBanners)
-            console.log(sideBannerList)
-        })
-    }
+    const [sideBannerList, setSideBannerList ] = useState([]);
 
+    const fetchingSideBar = async () => {
+      try{
+        setIsLoading(true);
+        const requestBody = {
+          query: sideBannerQuery
+        }
+        const options = { 
+          method: "POST", 
+          headers:{'content-type': 'application/json'},
+          body: JSON.stringify(requestBody)
+        }
+        const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLISTS_ENDPOINT, options)).json();
+        setSideBannerList(response?.data?.sideBanners)
+      }catch(err){
+        console.log(err)
+      }finally{
+        setIsLoading(false)
+      }
+    }
+ 
     useEffect(() => {
-        gettingSideBanners()
+        fetchingSideBar();
     }, [])
 
     const imageLoader = ({ src, width, quality }) => {
@@ -33,7 +49,7 @@ const SideBanners = () => {
             />
           </div>
         ))
-      }
+      } 
     </div>
   )
 }

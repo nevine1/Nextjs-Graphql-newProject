@@ -33,7 +33,7 @@ const SideNav = () => {
      {/* Menu list  */}
      {
         menus.map((item, index) =>(
-            <Link href={item.path}>
+            <Link href={item.path} key={index}>
                 <div key={item.id} className="flex gap-3 mt-2 text-[16px] 
                 p-2 items-center text-grey-500 cursor-pointer
                 hover:bg-primary hover:text-white 
