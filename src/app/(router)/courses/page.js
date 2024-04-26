@@ -18,7 +18,7 @@ export default function page () {
                 <CourseList/> 
             </div>
                 
-            <div className="bg-white mt-3 p-5 ">
+            <div className="bg-white mt-3 p-3 ">
                <SideBanner/>
             </div>
             

@@ -3,7 +3,7 @@ import React from 'react'
 
  const WelcomeBanner = () => {
     return (
-        <div className="p-3">
+        <div className="p-3 m-3 bg-white">
            <h1 className="font-bold text-[40px]">Welcome to 
                 <span className="text-primary"> Vena</span> academy
            </h1>

@@ -29,7 +29,7 @@ const SideNav = () => {
         console.log(" path is `${path}` ");
     }, [])
   return (
-    <div className="bg-white p-5 shadow-sm border h-screen">
+    <div className="bg-white p-3 shadow-sm border h-screen">
      {/* Menu list  */}
      {
         menus.map((item, index) =>(

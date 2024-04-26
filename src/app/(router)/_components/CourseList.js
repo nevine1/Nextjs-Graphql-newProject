@@ -53,7 +53,7 @@ function CourseList() {
 
   return (
    
-   <div className="p-5 m-5 rounded-lg bg-white">
+   <div className="p-3 m-3 rounded-lg bg-white">
     <div className="flex items-center justify-between">
       <h2 className="text-[20px] font-bold text-primary">Select options</h2>
 
