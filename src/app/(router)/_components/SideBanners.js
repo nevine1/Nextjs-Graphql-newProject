@@ -40,12 +40,13 @@ const SideBanners = () => {
       {
         sideBannerList.map((bannerItem, index) =>(
           <div>
-            <Image src={bannerItem.banner.url} width={100} 
-              height={1000}
-              loader={imageLoader}
+            <Image src={bannerItem.banner.url} 
+                width={500} 
+                height={400}
+                loader={imageLoader}
                 alt="banner image"
-              className="rounded-xl cursor-pointer"
-             onClick= {() =>{window.open(bannerItem?.url)}}
+                className="rounded-xl cursor-pointer"
+                onClick= {() =>{window.open(bannerItem?.url)}}
             />
           </div>
         ))

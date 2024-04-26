@@ -11,14 +11,14 @@ export default function page () {
  
 
     return(
-        <div className=" grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div className=" grid grid-cols-1 md:grid-cols-4 gap-3 ">
             <div className="col-span-3 ">
                 <WelcomeBanner/>
                 {/* courses list  */}
                 <CourseList/> 
             </div>
                 
-            <div className="bg-white p-5 ">
+            <div className="bg-white mt-3 p-5 ">
                <SideBanner/>
             </div>
             

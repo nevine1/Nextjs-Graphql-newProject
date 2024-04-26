@@ -34,12 +34,14 @@ const SideNav = () => {
      {
         menus.map((item, index) =>(
             <Link href={item.path} key={index}>
-                <div key={item.id} className="flex gap-3 mt-2 text-[16px] 
-                p-2 items-center text-grey-500 cursor-pointer
-                hover:bg-primary hover:text-white 
-                transition-all ease-out duration-300
-                rounded-md
-                ">
+                <div key={item.id} className= {`group flex gap-3 mt-2 text-[16px] 
+                    p-2 items-center text-grey-500 cursor-pointer
+                    hover:bg-primary hover:text-white 
+                    transition-all ease-out duration-300
+                    rounded-md
+                    ${path.includes(item.path) && `text-white bg-primary`}`
+                }
+                    >
                     <item.icon/> 
                     <h2 > {item.name}</h2>
                 </div>
