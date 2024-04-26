@@ -97,3 +97,18 @@ const getSideBanner2 = async () =>{
         }
     }
     `;
+    
+    export const courseDetailsQuery = gql`
+    
+        query CourseDetails {
+            courseList(where: {id: ""}) {
+                author
+                description
+                free
+                bannerPicture {
+                url
+                }
+                youtbueUrl
+            }
+        }
+    `
