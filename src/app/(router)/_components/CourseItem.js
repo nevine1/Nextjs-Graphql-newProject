@@ -6,7 +6,7 @@ import Img2 from '../../../../public/assets/imgs/chapter.png'
 import { Link } from 'next/link'
 const CourseItem = ({/* bannerPicture, title */ course }) => {
     
-    const imageLoader = ({ src, width, quality }) => {
+    const imageLoader = ({ id, src, width, quality }) => {
         // No CDN prefix needed, return the original src
         return src;
       }
@@ -14,18 +14,15 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
   return (
       <div className="grid md:grid-cols-1 sm:grid-cols-1 
         border-slate-400 width-full
-      bg-gray-100 m-2 rounded-xl
-        hover:shadow-md hover:shadow-purple-300
-        cursor-pointer 
-          ">
-            <Link href={`courses/${course.id}`}>
-              <Image src={course.bannerPicture.url}
-                loader={imageLoader}
-                width={900} height={600} alt={course.author}
-                className="border-t-xl   w-full rounded-t-xl"
+          bg-gray-100 m-2 rounded-xl
+          hover:shadow-md hover:shadow-purple-300
+          cursor-pointer 
+            ">
+            <Image src={course.bannerPicture.url}
+              loader={imageLoader}
+              width={900} height={600} alt={course.author}
+              className="border-t-xl   w-full rounded-t-xl"
                 />
-            </Link>
-       
           <div className="p-2">
            <div>
               <h3 className="font-medium ">{course.name.slice(0, 30)}</h3>

@@ -1,40 +1,17 @@
-
 "use client"
 import { useEffect, useState} from 'react'
 import { courseDetailsQuery } from '../../_utils/queries'
-import { headers } from 'next/headers';
+import { useParams } from 'next/navigation'
 const CourseVideoDescription = () => {
     const [course, setCourse ] = useState();
     const [error, setError ] = useState(null );
     const [isLoading, setIsLoading] = useState(false)
-    
-    const fetchingCourseDetails = async () =>{
-        setIsLoading(true);
-        try{
-            const requestBody = {
-                query: courseDetailsQuery
-            }
-            const options = {
-                method: 'POST', 
-                headers:{'content-type': 'application/json'}, 
-                body: JSON.stringify(requestBody)
-            }
-            const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLISTS_ENDPOINT, options)).json();
-            setCourse(response.data?.courseDetails);
-            console.log(course)
-            console.log('course detailsssssssssssssssssssssssssssssssssss')
-        }catch(err){
+  
 
-        }finally{
-            setIsLoading(false);
-        }
-    }
+const param = useParam();
 
-    useEffect(() =>{
-        fetchingCourseDetails();
-    }, [])
   return (
-    <div>CourseDetails</div>
+    <div>CourseDetails </div>
   )
 }
 

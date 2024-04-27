@@ -8,7 +8,7 @@ function CourseDetails({params}) {
   return (
     <div className="gird grid-cols-1 md:grid-cols-3 p-5 gap-3">
       {/* courseDetails{params.courseId} */}
-      <div className="col-span-2 bg-white">
+      <div className="col-span-2 bg-white p-3">
         <h1>course content </h1>
         <CourseVideoDescription/>
       </div>

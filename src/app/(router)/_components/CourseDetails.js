@@ -2,11 +2,12 @@
 import { useEffect, useState} from 'react'
 import { courseDetailsQuery } from '../../_utils/queries'
 import { headers } from 'next/headers';
-const CourseDetails = () => {
+const CourseDetails = ({params}) => {
     const [course, setCourse ] = useState();
     const [error, setError ] = useState(null );
     const [isLoading, setIsLoading] = useState(false)
-    
+    console.log(params)
+    console.log('params')
     const fetchingCourseDetails = async () =>{
         setIsLoading(true);
         try{

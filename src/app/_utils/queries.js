@@ -100,8 +100,8 @@ const getSideBanner2 = async () =>{
     
     export const courseDetailsQuery = gql`
     
-        query CourseDetails {
-            courseList(where: {id: ""}) {
+        query CourseDetails ($id: ID!) {
+            courseList(where: {id: $id}) {
                 author
                 description
                 free
