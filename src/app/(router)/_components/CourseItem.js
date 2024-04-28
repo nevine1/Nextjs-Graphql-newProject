@@ -25,7 +25,10 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
                 />
           <div className="p-2">
            <div>
+            <Link href={`courses/${course.id}`}>
               <h3 className="font-medium ">{course.name.slice(0, 30)}</h3>
+            </Link>
+              
               <p className="text-[14px] text-gray-400 p-1">{course.author}</p>
            </div>
            {course.totalParts?.length == 0 ? (
