@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Img1 from '../../../../public/assets/imgs/youtube.png'
 import Img2 from '../../../../public/assets/imgs/chapter.png'
 
-import { Link } from 'next/link'
+import  Link  from 'next/link'
 const CourseItem = ({/* bannerPicture, title */ course }) => {
     
     const imageLoader = ({ id, src, width, quality }) => {
@@ -18,16 +18,19 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
           hover:shadow-md hover:shadow-purple-300
           cursor-pointer 
             ">
+             <Link href={`/courses/${course.id}`}>
             <Image src={course.bannerPicture.url}
               loader={imageLoader}
               width={900} height={600} alt={course.author}
               className="border-t-xl   w-full rounded-t-xl"
                 />
+
+</Link>
           <div className="p-2">
            <div>
-            <Link href={`courses/${course.id}`}>
+           
               <h3 className="font-medium ">{course.name.slice(0, 30)}</h3>
-            </Link>
+          
               
               <p className="text-[14px] text-gray-400 p-1">{course.author}</p>
            </div>

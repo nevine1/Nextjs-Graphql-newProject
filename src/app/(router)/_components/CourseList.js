@@ -47,7 +47,7 @@ function CourseList() {
   useEffect(() => {
     getAllMyCourses();
   }, []); // Empty dependency array: fetch data only once on component mount
-
+console.log(courses)
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
