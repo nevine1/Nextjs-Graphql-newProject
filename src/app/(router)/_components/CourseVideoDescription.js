@@ -13,7 +13,7 @@ function CourseVideoDescription() {
 
   const fetchingCourseInfo = async (id) => {
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_COURSESLISTS_ENDPOINT, {
+      const response = await fetch(process.env.NEXT_PUBLIC_COURSESLIST_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,18 +32,17 @@ function CourseVideoDescription() {
       const data = await response.json();
       console.log('fetched data:', data); // Log the complete response data
       const courseData = data?.data?.courseList || null;
-      //return courseData;
-      console.log(courseData)
       setCourse(courseData)
+
     } catch (err) {
       console.error('Error fetching course info:', err);
       throw err; // Re-throw the error for handling in useEffect's catch
+    }finally{
+      setIsLoading(false)
     }
   };
- 
 
   useEffect(() => {
-   
     fetchingCourseInfo(id)
   }, [id]);
 
@@ -54,10 +53,11 @@ function CourseVideoDescription() {
       {isLoading && <p>Loading course details...</p>}
       {error && <p>Error: {error.message}</p>}
       {course && ( // Only render course details if course is available
-        <> {/* Use a fragment to avoid unnecessary wrapper */}
+        <div> {/* Use a fragment to avoid unnecessary wrapper */}
           <h1>{course.description}</h1>
+          <h1>{course.author}</h1>
           {/* Add other course details as needed */}
-        </>
+        </div>
       )}
       {!course && !isLoading && <h1>Course not found</h1>} 
     </div>

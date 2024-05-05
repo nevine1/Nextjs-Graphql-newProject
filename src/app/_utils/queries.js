@@ -1,8 +1,7 @@
 import { request, gql , GraphQLClient} from "graphql-request"
-
- const url = "https://api-ca-central-1.hygraph.com/v2/cluwi9h271dvu08watlqqenwh/master";
  
- export const COURSES_LIST = process.env.COURSESLISTS_ENDPOINT;
+ 
+ export const COURSES_LIST = process.env.COURSESLIST_ENDPOINT;
 /* const graphQLClient = new GraphQLClient(master_graph) */
 const getAllCourseList = async () =>{
     const coursesQuery = gql`
