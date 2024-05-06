@@ -15,14 +15,13 @@ function CourseList() {
   const [courses, setCourses] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  
+  const url = "https://ca-central-1.cdn.hygraph.com/content/cluwi9h271dvu08watlqqenwh/master"
 
   const getAllMyCourses = async () => {
 
     try {
       
       setIsLoading(true);
-      
       const requestBody = {
         query: coursesQuery 
       };
@@ -33,7 +32,7 @@ function CourseList() {
         body: JSON.stringify(requestBody)
       };
 
-      const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLISTS_ENDPOINT, options)).json();
+      const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLIST, options)).json();
       //console.log('RESPONSE FROM FETCH REQUEST', response?.data);
       setCourses(response?.data?.courseLists)
     }

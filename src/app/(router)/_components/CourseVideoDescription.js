@@ -13,7 +13,7 @@ function CourseVideoDescription() {
 
   const fetchingCourseInfo = async (id) => {
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_COURSESLIST_ENDPOINT, {
+      const response = await fetch(process.env.NEXT_PUBLIC_COURSESLIST, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,20 +46,16 @@ function CourseVideoDescription() {
     fetchingCourseInfo(id)
   }, [id]);
 
+  if(isLoading){
+    return <p>Loading course details...</p>
+  }
+  if(error){
+    return <p>Error: {error.message}</p>
+  }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-3">
-      <h1>Course Details</h1>
-      
-      {isLoading && <p>Loading course details...</p>}
-      {error && <p>Error: {error.message}</p>}
-      {course && ( // Only render course details if course is available
-        <div> {/* Use a fragment to avoid unnecessary wrapper */}
-          <h1>{course.description}</h1>
-          <h1>{course.author}</h1>
-          {/* Add other course details as needed */}
-        </div>
-      )}
-      {!course && !isLoading && <h1>Course not found</h1>} 
+    <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-3 bg-white">
+      <h1 className="text-[22px] font-semibold ">name</h1>
+      <h1 className="text-gray-500 text-[14px] mb-3"></h1>
     </div>
   );
 }

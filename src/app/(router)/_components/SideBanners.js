@@ -18,7 +18,7 @@ const SideBanners = () => {
           headers:{'content-type': 'application/json'},
           body: JSON.stringify(requestBody)
         }
-        const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLISTS_ENDPOINT, options)).json();
+        const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLIST_ENDPOINT, options)).json();
         setSideBannerList(response?.data?.sideBanners)
       }catch(err){
         console.log(err)

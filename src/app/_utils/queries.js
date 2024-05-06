@@ -1,7 +1,6 @@
 import { request, gql , GraphQLClient} from "graphql-request"
  
- 
- export const COURSES_LIST = process.env.COURSESLIST_ENDPOINT;
+
 /* const graphQLClient = new GraphQLClient(master_graph) */
 const getAllCourseList = async () =>{
     const coursesQuery = gql`
@@ -85,6 +84,11 @@ const getSideBanner2 = async () =>{
             bannerPicture {
             url
             }
+            updatedBy {
+            id
+            name
+            }
+            slug
           
         
         }
@@ -96,9 +100,18 @@ const getSideBanner2 = async () =>{
     query GetCourseDetails ($id: ID!) {
         courseList(where: { id: $id }) {
             author
+            bannerPicture {
+            id
+            url
+            }
+            free
+            id
             name
+            totalParts
+            youtbueUrl
             description
-        }
+            slug
+         }
         }
 
     `
