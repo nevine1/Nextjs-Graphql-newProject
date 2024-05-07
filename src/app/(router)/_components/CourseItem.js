@@ -18,14 +18,14 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
           hover:shadow-md hover:shadow-purple-300
           cursor-pointer 
             ">
-             <Link href={`/courses/${course.name}`}>
-            <Image src={course.bannerPicture.url}
-              loader={imageLoader}
-              width={900} height={600} alt={course.author}
-              className="border-t-xl   w-full rounded-t-xl"
-                />
+             <Link href={`/courses/${course.id}`}>
+              <Image src={course.bannerPicture.url}
+                loader={imageLoader}
+                width={900} height={600} alt={course.author}
+                className="border-t-xl   w-full rounded-t-xl"
+                  />
 
-</Link>
+            </Link>
           <div className="p-2">
            <div>
            

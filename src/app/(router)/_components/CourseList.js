@@ -15,8 +15,7 @@ function CourseList() {
   const [courses, setCourses] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  const url = "https://ca-central-1.cdn.hygraph.com/content/cluwi9h271dvu08watlqqenwh/master"
-
+  
   const getAllMyCourses = async () => {
 
     try {
