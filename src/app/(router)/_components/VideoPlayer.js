@@ -8,7 +8,7 @@ const VideoPlayer = ({videoUrl}) => {
             height={3000}
             controls autoPlay
             className="rounded-sm"
-        >
+          >
             <source src={videoUrl}
                 type="video/mp4"
             />

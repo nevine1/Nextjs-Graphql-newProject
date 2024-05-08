@@ -14,7 +14,7 @@ const getAllCourseList = async () =>{
                 name
                 totalParts
                 uploadedDate
-                youtbueUrl
+                youtubeUrl
                 bannerPicture {
                 url
                 }
@@ -42,7 +42,7 @@ const getSideBanner2 = async () =>{
             banner {
                 url
                 id
-            }
+                }
             }
         }
      `
@@ -71,7 +71,7 @@ const getSideBanner2 = async () =>{
 
  export const coursesQuery =  gql  `
     query CourseLists {
-        courseLists(first: 5, orderBy: name_ASC) {
+        courseLists {
             author
             createdAt
             description
@@ -80,7 +80,8 @@ const getSideBanner2 = async () =>{
             name
             totalParts
             uploadedDate
-            youtbueUrl
+            youtubeUrl
+            slug
             bannerPicture {
             url
             }
@@ -88,61 +89,45 @@ const getSideBanner2 = async () =>{
             id
             name
             }
-            slug
-          
-        
+            totalChapters {
+            ... on TotalChapters {
+                id
+                name
+                videoUrl {
+                url
+                }
+            }
+            }
         }
     }
     `;
     
     export const courseInfo =  gql `
-    
-    query GetCourseDetails ($id: ID!) {
-        courseList(where: { id: $id }) {
+       query GetCourseDetails($slug: String) {
+        courseList(where: {slug: $slug}) {
             author
+            description
             bannerPicture {
-            id
             url
             }
             free
             id
             name
-            totalParts
-            youtbueUrl
-            description
             slug
-         }
-        }
-
-    `
-
-/* 
-const getCourseById = async (courseId) =>{
-    const courseQy = gql`
-        query courseInfo {
-        singleCourse(where: {id: $courseId}) {
-            author
-            bannerPicture {
-            id
-            url
+            totalChapters {
+            ... on TotalChapters {
+                id
+                name
+                videoUrl {
+                id
+                url
+                }
             }
-            free
-            id
-            name
+            }
+            youtubeUrl
             totalParts
-            youtbueUrl
-            description
         }
         }
+
     `
 
-   const resp = await request( url ,courseQy );
-   return resp
-}
-
-export default {
-    getAllCourseList, 
-    getSideBanner2, 
-    getCourseById, 
-    courseId
-} */
