@@ -70,36 +70,25 @@ const getSideBanner2 = async () =>{
 
 
  export const coursesQuery =  gql  `
-    query CourseLists {
-        courseLists {
-            author
-            createdAt
-            description
-            free
+    query getCoursesList {
+        coursesLists {
             id
             name
-            totalParts
-            uploadedDate
-            youtubeUrl
             slug
-            bannerPicture {
-            url
+            description {
+            markdown
             }
-            updatedBy {
-            id
-            name
-            }
-            totalChapters {
-            ... on TotalChapters {
+            free
+            totalVideos {
+            ... on Videos {
                 id
                 name
-                videoUrl {
-                url
-                }
+                vidoeUrl
             }
             }
         }
-    }
+        }
+
     `;
     
     export const courseInfo =  gql `

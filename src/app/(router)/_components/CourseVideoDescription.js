@@ -11,8 +11,8 @@ function CourseVideoDescription({course}) {
         <div className="m-2"> 
           <h1 className="text-[20px] font-semibold mt-2">{course.name}</h1>
           <h1 className="text-gray-500 text-[14px] mb-2">{course.author}</h1>
-          <VideoPlayer 
-            videoUrl={course?.totalChapters[0]} />
+          {/* <VideoPlayer   videoUrl={course?.totalChapters?.videoUrl?.url[1]} /> */}
+          <VideoPlayer   videoUrl={course?.youtubeUrl} />
           <div>
             <h2 className="text-[17px] font-semibold mt-2">About this course</h2>
             

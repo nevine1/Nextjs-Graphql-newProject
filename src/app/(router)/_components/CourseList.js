@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { COURSES_LIST , coursesQuery } from '../../_utils/queries';
+import { coursesQuery } from '../../_utils/queries';
 import CourseItem from './CourseItem'
 
 import {
@@ -15,25 +15,30 @@ function CourseList() {
   const [courses, setCourses] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  
+
   const getAllMyCourses = async () => {
 
     try {
-      
+
       setIsLoading(true);
+
       const requestBody = {
         query: coursesQuery 
       };
+     
 
       const options = {
         method: 'POST',
         headers:{'content-type': 'application/json'},
         body: JSON.stringify(requestBody)
       };
-
-      const response = await (await fetch(process.env.NEXT_PUBLIC_COURSESLIST, options)).json();
-      //console.log('RESPONSE FROM FETCH REQUEST', response?.data);
-      setCourses(response?.data?.courseLists)
+console.log(body)
+      const response = await fetch(process.env.NEXT_PUBLIC_COURSESLIST, options);
+      console.log('RESPONSE FROM FETCH REQUEST', response?.data);
+      
+      const data = await response.json();
+      console.log(data);
+      setCourses(data?.data?.coursesLists)
     }
     catch (err) {
       console.log(`ERROR DURING FETCH REQUEST`, err);
