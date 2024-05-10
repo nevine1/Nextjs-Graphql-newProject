@@ -69,16 +69,21 @@ const getSideBanner2 = async () =>{
  `
 
 
- export const coursesQuery =  gql  `
-    query getCoursesList {
-        coursesLists {
+ export const coursesQuery = /* GraphQL */`
+   query getCoursesLists {
+            coursesLists {
             id
             name
             slug
+            free
+            youtubeUrl
             description {
             markdown
             }
-            free
+            bannerPicture {
+            id
+            url
+            }
             totalVideos {
             ... on Videos {
                 id
@@ -86,35 +91,31 @@ const getSideBanner2 = async () =>{
                 vidoeUrl
             }
             }
+            author
         }
         }
-
     `;
     
-    export const courseInfo =  gql `
-       query GetCourseDetails($slug: String) {
-        courseList(where: {slug: $slug}) {
+    export const courseInfo =  /* GraphQL */`
+       query GetCourseDetails($id: ID!) {
+            coursesList(where: {id: $id}) {
             author
-            description
             bannerPicture {
             url
             }
+            description {
+            markdown
+            }
             free
-            id
-            name
             slug
-            totalChapters {
-            ... on TotalChapters {
+            totalVideos {
+            ... on Videos {
                 id
                 name
-                videoUrl {
-                id
-                url
-                }
+                vidoeUrl
             }
             }
             youtubeUrl
-            totalParts
         }
         }
 

@@ -7,62 +7,68 @@ import CourseEnrollSection from '../../_components/CourseEnrollSection';
 import CourseContentSection from '../../_components/CourseContentSection';
 const page = () => {
 
-  const { slug } = useParams();
-  console.log(slug);
-  console.log('slugggggggggggggg');
-  console.log(slug? slug : 'Loading'); // Log the received id
+  const { id } = useParams();
+
+  // Log the received slug for debugging purposes
+  console.log('slug:', id);
 
   const [course, setCourse] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchingCourseInfo = async (slug) => {
+  const fetchingCourseInfo = async (id) => {
     try {
+      setIsLoading(true);
+
       const response = await fetch(process.env.NEXT_PUBLIC_COURSESLIST, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           query: courseInfo,
-          variables: { slug },
+          variables: { id },
         }),
       });
 
-      if (!response.ok) {
+      /* if (!response.ok) {
         throw new Error('Network response was not ok');
-      }
+      } */
 
-      const data = await response.json();
-      console.log('fetched data:', data); // Log the complete response data
-      const courseData = data?.data?.courseList || null;
-      setCourse(courseData)
+      const resData = await response.json();
+      console.log('Course Details Response:', resData); // Log detailed response data for debugging
 
+      const courseData = resData?.data?.courseBySlug || null;
+      setCourse(courseData);
+      console.log(course)
     } catch (err) {
-      console.error('Error fetching course info:', err);
-      throw err; // Re-throw the error for handling in useEffect's catch
-    }finally{
-      setIsLoading(false)
+   
+      setError(err.message); // Set a user-friendly error message
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchingCourseInfo(slug)
-  }, [slug]); 
+    fetchingCourseInfo(id);
+  }, [id]);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-3">
       <div className="col-span-2 p-4 bg-white">
-        <CourseVideoDescription course={course} />
+        {course && (
+          <CourseVideoDescription course={course} />
+        )}
+        {isLoading && <p>Loading course details...</p>}
+        {error && <p>Error: {error}</p>}
       </div>
       <div className="col-span-1 p-4 bg-white">
-        <CourseEnrollSection  />
-        <CourseContentSection course={course} />
-      </div> 
-      
+        <CourseEnrollSection />
+        {/* <h2>{course.name}</h2> */}
+        {course && <CourseContentSection course={course} />}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default page
