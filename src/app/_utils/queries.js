@@ -97,8 +97,9 @@ const getSideBanner2 = async () =>{
     `;
     
     export const courseInfo =  /* GraphQL */`
-       query GetCourseDetails($id: ID!) {
-            coursesList(where: {id: $id}) {
+       query GetCourseDetails($slug: String) {
+            course: coursesList(where: {slug: $slug}) {
+            name
             author
             bannerPicture {
             url
@@ -113,7 +114,7 @@ const getSideBanner2 = async () =>{
                 id
                 name
                 vidoeUrl
-            }
+                }
             }
             youtubeUrl
         }
