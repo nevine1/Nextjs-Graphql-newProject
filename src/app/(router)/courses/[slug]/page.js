@@ -5,7 +5,7 @@ import { courseInfo } from '../../../_utils/queries'
 import { useParams } from 'next/navigation';
 import CourseEnrollSection from '../../_components/CourseEnrollSection';
 import CourseContentSection from '../../_components/CourseContentSection';
-import CourseContent from '../../_components/CourseContent';
+
 const page = () => {
 
   const { slug } = useParams();
@@ -58,7 +58,8 @@ console.log(course)
        }
       </div>
       <div className="bg-white p-2 col-span-1">
-       <CourseContent course={course} />
+        <CourseEnrollSection/>
+       <CourseContentSection course={course} />
       </div>
     </div>
   );
