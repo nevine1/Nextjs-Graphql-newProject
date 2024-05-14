@@ -1,6 +1,7 @@
 "use client"
 import SideNav from "./_components/SideNav"
 import Header from './_components/Header'
+
 export default function  Layout ({children}) {
     return(
         <div>
