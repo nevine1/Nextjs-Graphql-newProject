@@ -1,11 +1,12 @@
 "use client"
 import React from 'react'
 import { Search, BellDot } from 'lucide-react'
-import { useUser } from '@clerk/nextjs'
+import { UserButton, useUser } from '@clerk/nextjs'
 import { Button } from '@mui/material'
-import Link from 'next/link'
+import {Link} from 'next/link'
 export default function Header({}) {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
+ console.log(user && isLoaded? user.fullName : "not found")
   return (
    <div className="bg-white p-4 flex justify-between ">
      <div className="flex gap-3 border rounded-md p-2">
@@ -18,10 +19,10 @@ export default function Header({}) {
         <BellDot className="text-gray-500 "/> 
         
         {
-          user ? (
-            <Button variant="contained">loggedIn</Button>
+          isLoaded && user ? (
+            <UserButton/>
           ):(
-            <Link href="/">SignUp</Link>
+            <Button variant="outline" color="primary">Get Started</Button>
           )
         }
     </div>

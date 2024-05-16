@@ -9,6 +9,11 @@ const Dashboard = () => {
   return (
     <div>
         <h1>Hello Dashboard</h1>
+        {
+          user && isLoaded && (
+            <h1>my name is : {user.fullName}</h1>
+          )
+        }
        {/*  <h1>My name is : {user.externalAcconts.fullname}</h1> */}
     </div>
   )
