@@ -1,14 +1,16 @@
 "use client"
 import {useEffect} from 'react'
 import { useRouter } from 'next/navigation'
-const SignInLogin = ({user}) => {
-    const router = userRouter();
+import { useUser } from '@clerk/nextjs'
 
+const SignInLogin = ({user}) => {
+    const router = useRouter();
+  const { user , isLoaded } = useUser();
     useEffect(() =>{
         if(user){
             router.push("/dashboard")
         }else{
-            router.pus('sign-in')
+           isLoaded && router.push('sign-in')
         }
     }, [])
   return (
