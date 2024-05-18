@@ -3,7 +3,7 @@ import React from 'react'
 import { Search, BellDot } from 'lucide-react'
 import { UserButton, useUser } from '@clerk/nextjs'
 import { Button } from '@mui/material'
-import {Link} from 'next/link'
+import Link from 'next/link'
 export default function Header({}) {
   const { user, isLoaded } = useUser();
  console.log(user && isLoaded? user.fullName : "not found")
@@ -20,9 +20,11 @@ export default function Header({}) {
         
         {
           isLoaded && user ? (
-            <UserButton/>
+            <UserButton afterSignOutUrl='/courses'/>
           ):(
-            <Button variant="outline" color="primary">Get Started</Button>
+           <Link href={`/sign-in`}>
+             <Button variant="outline" color="primary">Get Started</Button>
+           </Link>
           )
         }
     </div>

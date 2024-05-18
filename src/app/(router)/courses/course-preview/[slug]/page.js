@@ -1,10 +1,10 @@
 "use client"
 import { useState, useEffect } from 'react';
-import CourseVideoDescription from '../../_components/CourseVideoDescription'
-import { courseInfo } from '../../../_utils/queries'
+import CourseVideoDescription from '../../../_components/CourseVideoDescription'
+import { courseInfo } from '../../../../_utils/queries'
 import { useParams } from 'next/navigation';
-import CourseEnrollSection from '../../_components/CourseEnrollSection';
-import CourseContentSection from '../../_components/CourseContentSection';
+import CourseEnrollSection from '../../../_components/CourseEnrollSection';
+import CourseContentSection from '../../../_components/CourseContentSection';
 
 const page = () => {
 
@@ -58,7 +58,7 @@ console.log(course)
        }
       </div>
       <div className="bg-white p-2 col-span-1">
-        <CourseEnrollSection/>
+        <CourseEnrollSection course={course} />
        <CourseContentSection course={course} />
       </div>
     </div>

@@ -17,14 +17,14 @@ export default function RootLayout({ children }) {
     <ClerkProvider  >
       <html lang="en">
         <body className={inter.className}>
-        <header>
+        {/* <header>
             <SignedOut>
               <SignInButton />
             </SignedOut>
             <SignedIn>
               <UserButton />
             </SignedIn>
-          </header>
+          </header> */}
 
           <Provider store={store}>{children}</Provider>
         </body>

@@ -18,7 +18,7 @@ const CourseItem = ({/* bannerPicture, title */ course }) => {
           hover:shadow-md hover:shadow-purple-300
           cursor-pointer 
             ">
-             <Link href={`/courses/${course.slug}`}>
+             <Link href={`/courses/course-preview/${course.slug}`}>
               <Image src={course.bannerPicture.url}
                 loader={imageLoader}
                 width={900} height={600} alt={course.author}
