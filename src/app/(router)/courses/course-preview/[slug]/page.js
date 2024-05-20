@@ -58,7 +58,12 @@ console.log(course)
        }
       </div>
       <div className="bg-white p-2 col-span-1">
-        <CourseEnrollSection course={course} />
+      {
+        course && (
+          <CourseEnrollSection course={course} />
+        )
+       }
+        
        <CourseContentSection course={course} />
       </div>
     </div>

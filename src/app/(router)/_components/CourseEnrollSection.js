@@ -9,13 +9,15 @@ const CourseEnrollSection = ({course}) => {
   const memberShip = false; 
   const { user, isLoaded } = useUser();
 
+
+
   return (
     <div className="p-3 bg-primary text-center rounded-sm flex flex-col gap-3">
         <h2 className="text-[20px] text-white text-center font-bold">Enroll to the course</h2>
     
       {/* user already has membership and logged in */}
         {
-         user && (memberShip || course.free ) ? (
+         user && (memberShip || course.free)  ? (
             <div>
               <h2 className="text-[15px] text-white font-light">Enroll now to start building your project</h2>
               <Button className="bg-white text-primary p-3
